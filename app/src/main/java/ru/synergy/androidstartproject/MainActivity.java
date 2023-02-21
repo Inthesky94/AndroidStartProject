@@ -1,21 +1,20 @@
 package ru.synergy.androidstartproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_layout);
+        setContentView(R.layout.activity_main);
 
-        TextView textView = (TextView) findViewById(R.id.header);
-
-        textView.setText("Hello from Java");
+//        TextView textView = (TextView) findViewById(R.id.header);
+//
+//        textView.setText("Hello from Java");
 
 
 //        ConstraintLayout constraintLayout = new ConstraintLayout(this);
