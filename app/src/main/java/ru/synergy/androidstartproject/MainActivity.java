@@ -1,9 +1,12 @@
 package ru.synergy.androidstartproject;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView textView = (TextView) findViewById(R.id.normal);
+        textView.setText("Text from Java code");
+        textView.setTextColor(Color.RED);
 
 //        TextView textView = (TextView) findViewById(R.id.header);
 //
