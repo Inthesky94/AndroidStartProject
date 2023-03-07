@@ -96,6 +96,16 @@ public class Calculator extends AppCompatActivity {
 //                    e.printStackTrace();
 //                    Toast.makeText(Calculator.this, e.getMessage(), Toast.LENGTH_LONG).show();
 //                    finish();
+                    
+                    
+                    //восстановление
+                    e.printStackTrace();
+                    Toast.makeText(Calculator.this, e.getMessage(), Toast.LENGTH_LONG.show());
+                    dropFields();
+                    
+                    
+                    
+                    
                 }
 
                 Intent i = new Intent(Calculator.this, MainActivity.class); // Написать письмо
@@ -104,6 +114,10 @@ public class Calculator extends AppCompatActivity {
             }
         });
     }
+
+    private void dropFields() {
+    }
+
     private void calculateAnswer() throws ArithmeticException, IOException {
         EditText numOne = (EditText) findViewById(R.id.editTextNumberDecimal);
         EditText numTwo = (EditText) findViewById(R.id.editTextNumberDecimal2);
