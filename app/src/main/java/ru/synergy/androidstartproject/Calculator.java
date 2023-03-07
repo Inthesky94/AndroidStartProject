@@ -1,5 +1,7 @@
 package ru.synergy.androidstartproject;
 
+import static java.lang.Integer.parseInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -112,10 +114,10 @@ public class Calculator extends AppCompatActivity {
         String num1 = numOne.getText().toString();
         String num2 = numTwo.getText().toString();
         if(num1.equals("") && num1 != null) {
-        numone = Integer.parseInt(numOne.getText().toString());}
+        numone = parseInt(numOne.getText().toString());}
 
         if(num2.equals("") && num2 != null) {
-            numtwo = Integer.parseInt(numTwo.getText().toString());
+            numtwo = parseInt(numTwo.getText().toString());
         }
 
         Log.d(LogcatTag, "Successfully grabbed data from input fields");
