@@ -18,6 +18,8 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class Calculator extends AppCompatActivity {
     private static final String LogcatTag = "CALCULATOR_ACTIVITY";
     private static final String LifecycleTag = "LIFECYCLE";
@@ -56,6 +58,7 @@ public class Calculator extends AppCompatActivity {
         Log.d(LifecycleTag, "i'm onResume, and i'm started");
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,22 +82,29 @@ public class Calculator extends AppCompatActivity {
         //// Intent - посылка
 
 
-
-
-
         calculate.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Log.d(LogcatTag, "Button have been pushed");
-                calculateAnswer();
+                try{
+                    calculateAnswer();
+                }
+                catch (Exception e){
+
+                    // прерывание
+//                    e.printStackTrace();
+//                    Toast.makeText(Calculator.this, e.getMessage(), Toast.LENGTH_LONG).show();
+//                    finish();
+                }
+
                 Intent i = new Intent(Calculator.this, MainActivity.class); // Написать письмо
                 //startActivity(i); // отправить письмо
 
             }
         });
     }
-    private void calculateAnswer() {
+    private void calculateAnswer() throws ArithmeticException, IOException {
         EditText numOne = (EditText) findViewById(R.id.editTextNumberDecimal);
         EditText numTwo = (EditText) findViewById(R.id.editTextNumberDecimal2);
 
@@ -103,19 +113,15 @@ public class Calculator extends AppCompatActivity {
         RadioButton multiple = (RadioButton) findViewById(R.id.multiple);
         RadioButton divide = (RadioButton) findViewById(R.id.divide);
 
-//        numOne.setText("0");
-//        numTwo.setText("0");
-//        add.setChecked(true);
+        numOne.setText("0");
+        numTwo.setText("0");
+        add.setChecked(true);
 
         TextView answer = (TextView) findViewById(R.id.result);
 
         Log.d(LogcatTag, "All views have been founded");
 
-        try {
-            int a = 25/0;
-        } catch (ArithmeticException e){
-            e.printStackTrace();
-        }
+
 
         float numtwo = 0;
         float numone = 0;
@@ -164,17 +170,9 @@ public class Calculator extends AppCompatActivity {
         answer.setText("The answer is "+ solution);
 
 
-        Context contextApp = getApplicationContext();
-        Context context = getBaseContext();
-
-
-
-
-
-
-
-
-
-
+        switch( (int) Math.random()*2){
+            case 0 : throw new ArithmeticException("I am generated arithmetical exception");
+            case 1 : throw new IOException("i am generated ioexception");
+        }
     }
 }
